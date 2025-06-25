@@ -13,14 +13,11 @@ import java.io.ObjectInputStream;
 public class Main {
 	public static void main(String[] args) {
 		System.out.println(" Nhom 10");
-		List <KhachHang> khachhang = new ArrayList<>();
-		khachhang.add(new KhachHang("", "", "",000));
-		khachhang.add(new KhachHang("Nguyen Van A", "123 Nguyen Trai", "0123456789",222));
-		khachhang.add(new KhachHang("Tran Thi B", "456 Le Loi", "0987654321",333));
-		khachhang.add(new KhachHang("Le Van C", "789 Nguyen Hue", "0123456789",461));
-		khachhang.add(new KhachHang("Pham Thi D", "321 Le Lai", "0987654321",555));
-		Data.KHouputstream(khachhang);
-		Scanner scanner = new Scanner(System.in);
+		List <KhachHang> khachhang= Data.KHinputstream();
+		if(Data.KHinputstream()==null) {
+			khachhang= new ArrayList<>();
+		}
+		Scanner scanner= new Scanner(System.in);
 		
 		
 		while (true) {
