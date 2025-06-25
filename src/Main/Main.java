@@ -6,6 +6,10 @@ import java.time.LocalDate;
 import componet.KhachHang;
 import componet.HoaDon;
 import java.util.Scanner;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 public class Main {
 	public static void main(String[] args) {
 		System.out.println(" Nhom 10");
@@ -15,7 +19,9 @@ public class Main {
 		khachhang.add(new KhachHang("Tran Thi B", "456 Le Loi", "0987654321",333));
 		khachhang.add(new KhachHang("Le Van C", "789 Nguyen Hue", "0123456789",461));
 		khachhang.add(new KhachHang("Pham Thi D", "321 Le Lai", "0987654321",555));
+		Data.KHouputstream(khachhang);
 		Scanner scanner = new Scanner(System.in);
+		
 		
 		while (true) {
 		    System.out.println("1. Xem danh sach khach hang");

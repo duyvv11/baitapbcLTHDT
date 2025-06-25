@@ -1,6 +1,6 @@
 package componet;
-
-public class HoaDon {
+import java.io.Serializable;
+public class HoaDon implements Serializable {
 	private String maHoaDon;
 	private int Thang;
 	private int Nam;

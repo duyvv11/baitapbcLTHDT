@@ -1,8 +1,9 @@
 package componet;
 
 import java.util.List;
+import java.io.Serializable;
 
-public class KhachHang {
+public class KhachHang implements Serializable {
 	private String tenKhachHang;
 	private String diaChi;
 	private String soDienThoai;
@@ -52,7 +53,6 @@ public class KhachHang {
 	    if (hoaDonList == null || hoaDonList.isEmpty()) {
 	        return "Khong co hoa don nao.";
 	    }
-	    System.out.println("----------------------");
 	    StringBuilder sb = new StringBuilder();
 	    for (HoaDon hd : hoaDonList) {
 	        sb.append(hd.toString()).append("\n");
