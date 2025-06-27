@@ -18,6 +18,12 @@ public class Main {
 			khachhang= new ArrayList<>();
 		}
 		Scanner scanner= new Scanner(System.in);
+//		List <KhachHang> khachhang=new ArrayList<>();
+//		khachhang.add(new KhachHang("Nguyen Van A", "123 Nguyen Trai", "0123456789", 101));
+//		khachhang.add(new KhachHang("Tran Thi B", "456 Le Loi", "0987654321", 202));
+//		khachhang.add(new KhachHang("Le Van C", "789 Tran Hung Dao", "0912345678", 303));
+//		khachhang.add(new KhachHang("Pham Thi D", "321 Nguyen Van Cu", "0987654321", 404));
+//		Data.KHouputstream(khachhang);
 		
 		
 		while (true) {
@@ -26,6 +32,7 @@ public class Main {
 		    System.out.println("3. Thoat");
 		    System.out.println("4. Nhap hoa don tien dien khach hang:");
 		    System.out.println("5. Them khach hang moi");
+		    System.out.println("6. Sua thong tin khach hang");
 		    System.out.print("Nhap lua chon cua ban: ");
 		    int mkh;
 
@@ -46,8 +53,8 @@ public class Main {
 		        
 		        
 		        else if (choice == 2) {
+		        	System.out.println("Don gia:"+HoaDon.getDongiadien());
 		            System.out.print("Nhap don gia dien hien tai: ");
-		            
 		        	int dongiadien = scanner.nextInt();
 		        	HoaDon.setDongiadien(dongiadien);
 		        } 
@@ -76,6 +83,7 @@ public class Main {
 			        	        int year = today.getYear(); 
 			        	        HoaDon hd = new HoaDon(maHoaDon, month, year, soDien, kh);
 			        	        kh.AddHoaDon(hd);
+			        	        Data.KHouputstream(khachhang);
 			        	      	
 			        		}
 			        	}
@@ -103,6 +111,7 @@ public class Main {
 		        	kh.setDiaChi(diaChi);
 		        	kh.setSoDienThoai(soDienThoai);
 		        	khachhang.add(kh);
+		        	Data.KHouputstream(khachhang);
 	
 		        }
 		        else {

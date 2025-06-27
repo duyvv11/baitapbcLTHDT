@@ -4,6 +4,7 @@ import java.util.List;
 import java.io.Serializable;
 
 public class KhachHang implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String tenKhachHang;
 	private String diaChi;
 	private String soDienThoai;

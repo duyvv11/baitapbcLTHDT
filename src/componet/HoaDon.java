@@ -1,6 +1,7 @@
 package componet;
 import java.io.Serializable;
-public class HoaDon implements Serializable {
+public class HoaDon implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String maHoaDon;
 	private int Thang;
 	private int Nam;
@@ -40,7 +41,7 @@ public class HoaDon implements Serializable {
 	public void setNam(int nam) {
 		Nam = nam;
 	}
-	public static int getDongiadien(int dongiadien) {
+	public static int getDongiadien() {
 		return dongiadien;
 	}
 	public static void setDongiadien(int dongiadien) {
