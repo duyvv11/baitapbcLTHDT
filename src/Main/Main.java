@@ -114,6 +114,33 @@ public class Main {
 		        	Data.KHouputstream(khachhang);
 	
 		        }
+		        else if( choice==6) {
+		        	System.out.println("nhap ma khach hang can sua: ");
+		        	int makh;
+		        	makh=scanner.nextInt();
+		        	for(KhachHang h : khachhang) {
+		        		if(h.getMaKhachHang()==makh) {
+		        			System.out.println("sua thong tin cho khach hang"+h.getTenKhachHang()+" "+h.getDiaChi()+" "+h.getSoDienThoai());
+		        			String tenkhachhang,diachi,sodienthoai;
+		        			System.out.println("nhap ten cho khach hang: ");
+		        			tenkhachhang=scanner.nextLine();
+		        			System.out.println("nhap dia chi cho khach hang: ");
+		        			diachi=scanner.nextLine();
+		        			System.out.println("nhap so dien thoai cho khach hang: ");
+		        			sodienthoai=scanner.nextLine();
+		        			if(tenkhachhang!=null)
+		        			h.setTenKhachHang(tenkhachhang);
+		        			if(sodienthoai!=null)
+		        			h.setSoDienThoai(sodienthoai);
+		        			if(diachi!=null)
+		        			h.setDiaChi(diachi);
+		        			System.out.println("sua thanh cong");
+		        			Data.KHouputstream(khachhang);
+		        		
+		        		}
+		        		
+		        	}
+		        }
 		        else {
 		            System.out.println("Lua chon khong hop le, vui long chon lai");
 		        }
