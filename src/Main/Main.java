@@ -17,7 +17,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JScrollBar;
-import Main.FNhapKhachHang;
+import javax.swing.JOptionPane;
+
 
 
 public class Main extends JFrame {
@@ -25,7 +26,7 @@ public class Main extends JFrame {
 //	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtDonGiaHt;
-	private List<KhachHang> khachhang; ;
+	private List<KhachHang> khachhang; 
 	private JTextArea textArea;
 	
 
@@ -72,21 +73,13 @@ public class Main extends JFrame {
 		btnXemDanhSach.setBounds(298, 193, 191, 23);
 		contentPane.add(btnXemDanhSach);
 		
-		JButton btnThemKhachHang = new JButton("Thêm Khách Hàng Mới");
-		btnThemKhachHang.setBounds(298, 261, 191, 23);
-		contentPane.add(btnThemKhachHang);
-		
 		JButton btnSuaThongTin = new JButton("Sửa Thông Tin Khách Hàng");
-		btnSuaThongTin.setBounds(298, 295, 191, 23);
+		btnSuaThongTin.setBounds(298, 261, 191, 23);
 		contentPane.add(btnSuaThongTin);
 		
 		JButton btnNhapKH = new JButton("Nhập Khách Hàng Mới");
 		btnNhapKH.setBounds(298, 159, 191, 23);
 		contentPane.add(btnNhapKH);
-		
-		JButton btnNhapDonGia = new JButton("Nhập Đơn Giá Điện Hiện Tại");
-		btnNhapDonGia.setBounds(298, 329, 191, 23);
-		contentPane.add(btnNhapDonGia);
 		
 		textArea = new JTextArea();
 		textArea.setEditable(false);
@@ -103,6 +96,7 @@ public class Main extends JFrame {
 
 		
 		txtDonGiaHt = new JTextField();
+		txtDonGiaHt.setEditable(false);
 		txtDonGiaHt.setBounds(393, 11, 96, 20);
 		contentPane.add(txtDonGiaHt);
 		txtDonGiaHt.setText(String.valueOf(HoaDon.dongiadien));
@@ -112,11 +106,17 @@ public class Main extends JFrame {
 		lblNewLabel.setBounds(234, 10, 157, 23);
 		contentPane.add(lblNewLabel);
 		
+		JButton btnCapNhatThanhToan = new JButton("Cap nhat trang thai thanh toan");
+		btnCapNhatThanhToan.setBounds(298, 295, 191, 23);
+		contentPane.add(btnCapNhatThanhToan);
+		
 		// event click
 		btnXemDanhSach.addActionListener(e -> xemDanhSachKhachHang());
 		btnNhapKH.addActionListener(e -> themKhachHangMoi());
 		btnNhapHoaDon.addActionListener(e->NhapHoaDon());
-			
+		btnSuaThongTin.addActionListener(e-> suaThongTin());
+		btnCapNhatThanhToan.addActionListener(e-> CapNhatTTThanhToan());
+					
 
 	}
 	private void xemDanhSachKhachHang() {
@@ -139,5 +139,45 @@ public class Main extends JFrame {
 		FNhapHoaDon frame = new FNhapHoaDon(khachhang);
 		frame.setVisible(true);
 	}
+	private void suaThongTin() {
+		
+		int maKhachHang = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Nhap ma khach hang can sua thong tin:"));
+		for(KhachHang kh: khachhang) {
+			if(kh.getMaKhachHang() == maKhachHang) {
+				FSuaTTKH frame = new FSuaTTKH(khachhang,kh);
+				frame.setVisible(true);
+				return;
+			}
+		}
+	}
+	private void CapNhatTTThanhToan() {
+		int maKhachHang =Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Nhap ma khach hang :"));
+		String maHoaDon = javax.swing.JOptionPane.showInputDialog("Nhap ma hoa don:");
+		for(KhachHang kh:khachhang) {
+			if(kh.getMaKhachHang()==maKhachHang) {
+				for(HoaDon hd:kh.getHoaDonList()) {
+					if(hd.getMaHoaDon().equals(maHoaDon)) {
+						if(hd.getStThanhToan()==true) {
+							JOptionPane.showMessageDialog(null, "Hoa don da thanh toan");
+							return;
+						}
+						JOptionPane.showMessageDialog(null, "Hoa don co ma: " + maHoaDon + " thuoc ve khach hang: " + kh.getTenKhachHang());
+						int xn = javax.swing.JOptionPane.showConfirmDialog(null,"Cap nhat trang thai thanh toan thanh da thanh toan","cho hoa don",javax.swing.JOptionPane.YES_NO_OPTION);
+						if(xn == javax.swing.JOptionPane.YES_OPTION) {
+							hd.setStThanhToan();
+							Data.KHouputstream(khachhang);
+							JOptionPane.showMessageDialog(null, "Cap nhat trang thai thanh toan thanh cong");
+							return;
+						} else {
+							JOptionPane.showMessageDialog(null, "Cap nhat trang thai thanh toan that bai");
+							return;
+						}
+						
+					}
+				}
+			}
+				
+		}
+
 }
-	
+}	

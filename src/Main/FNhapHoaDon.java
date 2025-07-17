@@ -90,12 +90,14 @@ public class FNhapHoaDon extends JFrame {
 		labell.add(btnDong);
 		
 		txtThang = new JTextField();
+		txtThang.setEditable(false);
 		txtThang.setBounds(105, 156, 96, 20);
 		txtThang.setText(String.valueOf(thanght));
 		labell.add(txtThang);
 		txtThang.setColumns(10);
 		
 		txtNam = new JTextField();
+		txtNam.setEditable(false);
 		txtNam.setBounds(105, 205, 96, 20);
 		txtNam.setText(String.valueOf(namht));
 		labell.add(txtNam);
@@ -121,10 +123,13 @@ public class FNhapHoaDon extends JFrame {
 		
 		for (KhachHang kh : khachhang) {
 			if (kh.getMaKhachHang()== maKH) {
-				for(HoaDon hd : kh.getHoaDonList()) {
-					if(hd.getMaHoaDon().equals(maHD)||hd.getThang() == thang && hd.getNam() == nam) {
-						JOptionPane.showMessageDialog(labell, "Ma hoa don da ton tai hoac da co hoa don trong thang nay");
-						return;
+				List<HoaDon> hoaDonList = kh.getHoaDonList();
+				if(hoaDonList !=null) {
+					for(HoaDon hd : hoaDonList) {
+						if(hd.getMaHoaDon().equals(maHD)||hd.getThang() == thang && hd.getNam() == nam) {
+							JOptionPane.showMessageDialog(labell, "Ma hoa don da ton tai hoac da co hoa don trong thang nay");
+							return;
+						}
 					}
 				}
 				HoaDon hd = new HoaDon(maHD,thang, nam, soDien, kh, stThanhToan);
