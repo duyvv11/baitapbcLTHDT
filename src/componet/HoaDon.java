@@ -6,14 +6,16 @@ public class HoaDon implements Serializable{
 	private int Thang;
 	private int Nam;
 	private KhachHang khachHang;
-	private static int dongiadien = 3000;
+	public static int dongiadien = 3000;
 	private int soDien;
-	public HoaDon(String maHoaDon, int thang, int nam, int soDien, KhachHang khachHang) {
+	private boolean stThanhToan=false;
+	public HoaDon(String maHoaDon, int thang, int nam, int soDien, KhachHang khachHang,Boolean stThanhToan) {
 		this.maHoaDon = maHoaDon;
 		this.Thang = thang;
 		this.Nam = nam;
 		this.soDien = soDien;
 		this.khachHang = khachHang;
+		this.stThanhToan=stThanhToan;
 	}
 	@Override
 	public String toString() {
@@ -58,8 +60,21 @@ public class HoaDon implements Serializable{
 	}
 	public String xuaHoaDon(String tenKhachHang) {
 		System.out.println("Hoa Don Cua Khach Hang: " + tenKhachHang);
+		String STTT;
+		if(stThanhToan==true) {
+			STTT="Da Thanh Toan";	
+		}
+		else
+			STTT="Chua Thanh Toan";
 		return "HoaDon [maHoaDon=" + maHoaDon + ", Thang=" + Thang + ", Nam=" + Nam + ", soDien=" + soDien
-				+ ", tongTien=" + tinhTien() + "]";
+				+ ", tongTien=" + tinhTien() + ",ThanhToan: "+STTT+"]";
+	}
+	public boolean setStThanhToan(){
+		return stThanhToan=true;
+		
+	}
+	public boolean getStThanhToan() {
+		return stThanhToan;
 	}
 
 }

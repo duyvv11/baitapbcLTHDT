@@ -57,6 +57,12 @@ public class KhachHang implements Serializable {
 	    StringBuilder sb = new StringBuilder();
 	    for (HoaDon hd : hoaDonList) {
 	        sb.append(hd.toString()).append("\n");
+	        sb.append("thanh tien: ").append(hd.tinhTien()).append("\n");
+	        if (hd.getStThanhToan()) {
+	            sb.append("Da thanh toan\n");
+	        } else {
+	            sb.append("Chua thanh toan\n");
+	        }
 	    }
 	    return sb.toString();
 	}
@@ -79,6 +85,10 @@ public class KhachHang implements Serializable {
 	public void setSoDienThoai(String soDienThoai) {
 		this.soDienThoai = soDienThoai;
 	}
+	public List<HoaDon> getHoaDonList() {
+		return hoaDonList;
+	}
+
 	
 
 }
