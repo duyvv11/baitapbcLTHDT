@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JScrollBar;
 import javax.swing.JOptionPane;
+import java.awt.Color;
 
 
 
@@ -53,8 +54,9 @@ public class Main extends JFrame {
 	 */
 	public Main() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 526, 415);
+		setBounds(100, 100, 549, 415);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(128, 255, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -66,19 +68,19 @@ public class Main extends JFrame {
 		
 		
 		JButton btnNhapHoaDon = new JButton("Nhập Hóa Đơn Tiền Điện");
-		btnNhapHoaDon.setBounds(298, 227, 191, 23);
+		btnNhapHoaDon.setBounds(298, 227, 229, 23);
 		contentPane.add(btnNhapHoaDon);
 		
 		JButton btnXemDanhSach = new JButton("Xem Danh Sách Khách Hàng");
-		btnXemDanhSach.setBounds(298, 193, 191, 23);
+		btnXemDanhSach.setBounds(298, 193, 229, 23);
 		contentPane.add(btnXemDanhSach);
 		
 		JButton btnSuaThongTin = new JButton("Sửa Thông Tin Khách Hàng");
-		btnSuaThongTin.setBounds(298, 261, 191, 23);
+		btnSuaThongTin.setBounds(298, 261, 229, 23);
 		contentPane.add(btnSuaThongTin);
 		
 		JButton btnNhapKH = new JButton("Nhập Khách Hàng Mới");
-		btnNhapKH.setBounds(298, 159, 191, 23);
+		btnNhapKH.setBounds(298, 159, 229, 23);
 		contentPane.add(btnNhapKH);
 		
 		textArea = new JTextArea();
@@ -107,7 +109,7 @@ public class Main extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnCapNhatThanhToan = new JButton("Cap nhat trang thai thanh toan");
-		btnCapNhatThanhToan.setBounds(298, 295, 191, 23);
+		btnCapNhatThanhToan.setBounds(298, 295, 229, 23);
 		contentPane.add(btnCapNhatThanhToan);
 		
 		// event click
@@ -161,7 +163,7 @@ public class Main extends JFrame {
 							JOptionPane.showMessageDialog(null, "Hoa don da thanh toan");
 							return;
 						}
-						JOptionPane.showMessageDialog(null, "Hoa don co ma: " + maHoaDon + " thuoc ve khach hang: " + kh.getTenKhachHang());
+						JOptionPane.showMessageDialog(null, "Hoa don co ma: " + maHoaDon + " thuoc ve: " + kh.getTenKhachHang());
 						int xn = javax.swing.JOptionPane.showConfirmDialog(null,"Cap nhat trang thai thanh toan thanh da thanh toan","cho hoa don",javax.swing.JOptionPane.YES_NO_OPTION);
 						if(xn == javax.swing.JOptionPane.YES_OPTION) {
 							hd.setStThanhToan();

@@ -14,10 +14,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import java.awt.Color;
+import java.awt.Font;
 
 public class FSuaTTKH extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+//	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private KhachHang khachhangcanSua;
 	private List<KhachHang> khachhang;
@@ -26,19 +28,14 @@ public class FSuaTTKH extends JFrame {
 	private JTextField txtDiaChi;
 	private JTextField txtsdt;
 
-	/**
-	 * Launch the application.
-	 */
 
-	/**
-	 * Create the frame.
-	 */
 	public FSuaTTKH(List<KhachHang> khachhang, KhachHang khachhangcanSua) {
 		this.khachhang = khachhang;
 		this.khachhangcanSua = khachhangcanSua;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 503, 366);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(128, 255, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -58,10 +55,6 @@ public class FSuaTTKH extends JFrame {
 		JLabel lblsdt = new JLabel("So Dien Thoai");
 		lblsdt.setBounds(26, 163, 94, 14);
 		contentPane.add(lblsdt);
-		
-		JLabel lblNewLabel_3_1 = new JLabel("Hoa don cua khach hang nay");
-		lblNewLabel_3_1.setBounds(248, 11, 197, 14);
-		contentPane.add(lblNewLabel_3_1);
 		
 		txtMKH = new JTextField();
 		txtMKH.setEditable(false);
@@ -108,6 +101,10 @@ public class FSuaTTKH extends JFrame {
 		scrollPane.setViewportView(textArea);
 		textArea.setText(khachhangcanSua.getHoaDonListAsString());
 		
+		JLabel lblNewLabel_3 = new JLabel("Hoa don cua khach hang nay");
+		lblNewLabel_3.setBounds(250, 22, 171, 14);
+		contentPane.add(lblNewLabel_3);
+		
 		// event
 		btnLuu.addActionListener(e-> SuaTTKH());
 		btnDong.addActionListener(e -> {
@@ -129,5 +126,4 @@ public class FSuaTTKH extends JFrame {
 			this.dispose();
 		}
 	}
-	
 }

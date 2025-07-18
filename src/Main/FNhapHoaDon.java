@@ -16,9 +16,10 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import componet.HoaDon;
 import javax.swing.JCheckBox;
+import java.awt.Color;
 public class FNhapHoaDon extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+//	private static final long serialVersionUID = 1L;
 	private JPanel labell;
 	private List<KhachHang> khachhang;
 	private JTextField txtMaKH;
@@ -43,6 +44,7 @@ public class FNhapHoaDon extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 498, 382);
 		labell = new JPanel();
+		labell.setBackground(new Color(128, 255, 128));
 		labell.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(labell);
 		labell.setLayout(null);
@@ -104,7 +106,7 @@ public class FNhapHoaDon extends JFrame {
 		txtNam.setColumns(10);
 		
 		ckbThanhToan = new JCheckBox("Đã Thanh Toán");
-		ckbThanhToan.setBounds(275, 204, 99, 23);
+		ckbThanhToan.setBounds(275, 204, 145, 23);
 		labell.add(ckbThanhToan);
 		
 		//event
